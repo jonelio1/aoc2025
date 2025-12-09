@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -28,6 +29,7 @@ func parseInput(inputs []string) []int {
 
 func resolveActions(actions []int, position int) int {
 	password := 0
+	fmt.Printf("init pos %v, action %v, adding %v\n", position, actions[0], actions[0]%100)
 	position += actions[0] % 100
 
 	if position > 99 {
@@ -62,5 +64,5 @@ func main() {
 	}
 
 	password := resolveActions(parseInput(inputs), 50)
-	log.Printf("Password: %o", password)
+	fmt.Printf("Password: %v", password)
 }
